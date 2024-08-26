@@ -1,19 +1,21 @@
-// src/App.js
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import HoroscopePage from './pages/HoroscopePage';
+import React, { useContext } from 'react';
+import ZodiacPage from './pages/ZodiacPage';
+import LanguageSwitcher from './components/LanguageSwitcher';
+import { PolyglotContext } from './index';
 
 const App = () => {
-  const [selectedSign, setSelectedSign] = useState(null);
+  const { polyglot, setLanguage } = useContext(PolyglotContext);
+
+  const handleZodiacClick = (id) => {
+    alert(`Clicked on ${id}`); // Замените это на логику показа описания знака
+  };
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home onZodiacClick={setSelectedSign} />} />
-        <Route path="/horoscope" element={<HoroscopePage sign={selectedSign} onBack={() => setSelectedSign(null)} />} />
-      </Routes>
-    </Router>
+    <div>
+      <h1>{polyglot.t('appTitle', 'Zodiac Signs')}</h1>
+      <LanguageSwitcher setLanguage={setLanguage} />
+      <ZodiacPage onZodiacClick={handleZodiacClick} />
+    </div>
   );
 };
 

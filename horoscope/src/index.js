@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useState, createContext, useContext } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './styles/App.css'
+import initPolyglot from './i18n';
+import './styles/zodiac.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const PolyglotContext = createContext();
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Root = () => {
+  const [language, setLanguage] = useState(navigator.language.split(/[-_]/)[0]);
+  const polyglot = initPolyglot(language);
+
+  return (
+    <PolyglotContext.Provider value={{ polyglot, setLanguage }}>
+      <App />
+    </PolyglotContext.Provider>
+  );
+};
+
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<Root />);
+
+export { PolyglotContext };

@@ -1,0 +1,47 @@
+.zodiac-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .zodiac-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .zodiac-block:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .zodiac-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  
+  .zodiac-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .zodiac-period {
+    font-size: 14px;
+    color: #666;
+  }
+  
+
+.zodiac-description {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #333;
+  }
+  
