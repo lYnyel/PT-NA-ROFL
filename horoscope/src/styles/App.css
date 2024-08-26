@@ -1,0 +1,23 @@
+.zodiac-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.zodiac-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.horoscope-detail {
+  padding: 20px;
+  text-align: center;
+}
+
+.language-switcher {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
